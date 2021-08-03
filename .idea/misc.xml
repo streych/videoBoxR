@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/videoBoxR/app/src/main/res/drawable/ic__insert_chart_outlined.xml" value="0.39479166666666665" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/videoBoxR/app/src/main/res/layout/main_activity.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/videoBoxR/app/src/main/res/layout/main_fragment.xml" value="0.3645833333333333" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/videoBoxR/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
