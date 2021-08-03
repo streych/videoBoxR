@@ -1,4 +1,4 @@
-package com.example.videoboxr.ui.main
+package com.example.videoboxr.ui.main.reting
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,8 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.videoboxr.R
+import com.example.videoboxr.databinding.RetingFragmentBinding
 
 class RetingFragment : Fragment() {
+
+    private var _binding: RetingFragmentBinding? = null
+
+    private  val binding
+    get() = _binding!!
 
     companion object {
         fun newInstance() = RetingFragment()
@@ -20,7 +26,8 @@ class RetingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.reting_fragment, container, false)
+        _binding = RetingFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
