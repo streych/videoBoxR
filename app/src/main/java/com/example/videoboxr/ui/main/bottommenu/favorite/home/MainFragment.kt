@@ -49,7 +49,7 @@ class MainFragment : Fragment() {
                 val movieData = data.movieData
                 binding.loadingLayout.visibility = View.GONE
 
-                populateData(movieData)
+                //populateData(movieData)
             }
             is AppState.Loading -> {
                 binding.loadingLayout.visibility = View.VISIBLE
