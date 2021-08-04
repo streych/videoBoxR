@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/favoritesFragment"
+    android:id="@+id/retingFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.bottommenu.favorite.FavoriteFragment">
@@ -11,9 +11,25 @@
         android:id="@+id/retingFragmentRecycleView"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loadBackground"
+        android:visibility="gone"
+        tools:vibility="value">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

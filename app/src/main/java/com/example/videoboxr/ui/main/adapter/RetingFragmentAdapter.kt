@@ -2,11 +2,11 @@ package com.example.videoboxr.ui.main.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.videoboxr.databinding.FragmentRetingRecyclerItemBinding
 import com.example.videoboxr.model.data.Movie
-import com.example.videoboxr.ui.main.bottommenu.favorite.reting.RetingViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class RetingFragmentAdapter :
