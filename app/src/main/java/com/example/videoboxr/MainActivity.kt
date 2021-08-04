@@ -7,13 +7,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.videoboxr.databinding.MainActivityBinding
 import com.example.videoboxr.ui.main.favorite.FavoriteFragment
 import com.example.videoboxr.ui.main.home.MainFragment
 import com.example.videoboxr.ui.main.reting.RetingFragment
+import com.example.videoboxr.ui.main.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,19 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(binding.container.id, MainFragment.newInstance())
                 .commitNow()
         }
+
         menuBottom()
 
-
     }
-
-
 
     private fun menuBottom(){
         binding.bottomMenuNav.setOnItemSelectedListener {
@@ -90,15 +90,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.about -> {
                 aboutDialog()
+                return true
+            }
+            R.id.settings -> {
+                supportFragmentManager.beginTransaction().replace(binding.container.id, SettingsFragment())
+                    .addToBackStack(null).commit()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     private fun aboutDialog(){
         val builder = AlertDialog.Builder(this)
