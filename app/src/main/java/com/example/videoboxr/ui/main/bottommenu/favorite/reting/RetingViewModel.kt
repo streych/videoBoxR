@@ -1,4 +1,4 @@
-package com.example.videoboxr.ui.main.reting
+package com.example.videoboxr.ui.main.bottommenu.favorite.reting
 
 import androidx.lifecycle.ViewModel
 

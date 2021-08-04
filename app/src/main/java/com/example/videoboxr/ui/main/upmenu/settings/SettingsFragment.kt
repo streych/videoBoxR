@@ -1,4 +1,4 @@
-package com.example.videoboxr.ui.main.settings
+package com.example.videoboxr.ui.main.upmenu.settings
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

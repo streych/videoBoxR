@@ -1,4 +1,4 @@
-package com.example.videoboxr.ui.main.favorite
+package com.example.videoboxr.ui.main.bottommenu.favorite
 
 import androidx.lifecycle.ViewModel
 

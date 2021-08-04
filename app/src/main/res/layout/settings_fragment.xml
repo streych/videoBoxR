@@ -5,7 +5,7 @@
     android:id="@+id/favoritesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.settings.SettingsFragment">
+    tools:context=".ui.main.upmenu.settings.SettingsFragment">
 
     <TextView
         android:id="@+id/settings"

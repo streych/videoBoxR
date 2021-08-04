@@ -10,10 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.videoboxr.databinding.MainActivityBinding
-import com.example.videoboxr.ui.main.favorite.FavoriteFragment
-import com.example.videoboxr.ui.main.home.MainFragment
-import com.example.videoboxr.ui.main.reting.RetingFragment
-import com.example.videoboxr.ui.main.settings.SettingsFragment
+import com.example.videoboxr.ui.main.bottommenu.favorite.FavoriteFragment
+import com.example.videoboxr.ui.main.bottommenu.favorite.home.MainFragment
+import com.example.videoboxr.ui.main.bottommenu.favorite.reting.RetingFragment
+import com.example.videoboxr.ui.main.upmenu.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
