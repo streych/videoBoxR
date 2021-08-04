@@ -9,20 +9,21 @@ import com.example.videoboxr.model.repository.RepositoryImpl
 
 class MainViewModel(private val repository: Repository = RepositoryImpl())
     : ViewModel() {
-    private val liveDataToObserve: MutableLiveData<AppState> =
-        MutableLiveData()
+    private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
+
     fun getData(): LiveData<AppState> {
         getDataFromLocalSource()
         return liveDataToObserve
     }
 
-    private fun getDataFromLocalSource(){
+    private fun getDataFromLocalSource() {
         val rand = (0..1).random()
         liveDataToObserve.value = AppState.Loading
-        Thread{
+        Thread {
             Thread.sleep(1000)
             if(rand == 0){
-                liveDataToObserve.postValue(AppState.Success(repository.getMovieFromLocal()))
+                liveDataToObserve.postValue(
+                    AppState.Success(repository.getMovieFromLocal()))
             }
             else{
                 liveDataToObserve.postValue(AppState.Error())

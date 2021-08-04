@@ -1,14 +1,10 @@
 package com.example.videoboxr.model.repository
 
 import com.example.videoboxr.model.data.Movie
+import com.example.videoboxr.model.data.getMovies
 
 class RepositoryImpl: Repository {
-    override fun getMovieFromLocal(): Movie {
-        return Movie(
-            "Камень",
-            "Лучший фильм((=",
-            "12.12.2020",
-            5
-        )
+    override fun getMovieFromLocal(): List<Movie> {
+        return getMovies()
     }
 }
