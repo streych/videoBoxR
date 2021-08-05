@@ -6,15 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/item_imageR"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/retingFragmentRecyclerItemView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Москва" />
+            android:id="@+id/item_titleR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_dataR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toBottomOf="@id/item_titleR"
+            android:layout_marginTop="6dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_retingR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toBottomOf="@id/item_dataR"
+            android:layout_marginTop="6dp"/>
 
     <View
         android:layout_width="match_parent"
@@ -23,6 +49,6 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retingFragmentRecyclerItemView" />
+        app:layout_constraintTop_toBottomOf="@+id/item_retingR" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

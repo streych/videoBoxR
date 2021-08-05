@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.example.videoboxr.R
 import com.example.videoboxr.databinding.RetingFragmentBinding
 import com.example.videoboxr.model.AppState
 import com.example.videoboxr.model.data.Movie
 import com.example.videoboxr.ui.main.adapter.RetingFragmentAdapter
+import com.example.videoboxr.ui.main.detailfragment.DetailFragment
+import com.example.videoboxr.ui.main.upmenu.settings.SettingsFragment
 import com.google.android.material.snackbar.Snackbar
 
 class RetingFragment : Fragment() {
@@ -37,6 +40,20 @@ class RetingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter.setOnItemViewClickListener(object : OnItemViewClickListener{
+            override fun onItemViewClick(movie: Movie) {
+                val manager = activity?.supportFragmentManager
+                if (manager != null){
+                    val bundle = Bundle()
+                    bundle.putParcelable(DetailFragment.BUNDLE_EXTRA, movie)
+                    manager.beginTransaction().replace(R.id.container,
+                        DetailFragment.newInstance(bundle))
+                        .addToBackStack("")
+                        .commitAllowingStateLoss()
+                }
+            }
+
+        })
         binding.retingFragmentRecycleView.adapter = adapter
 
         viewModel = ViewModelProvider(this).get(RetingViewModel::class.java)
@@ -60,10 +77,20 @@ class RetingFragment : Fragment() {
         }
     }
 
+    interface OnItemViewClickListener{
+        fun onItemViewClick(movie: Movie)
+    }
+
     private fun populateData(movieData: Movie){
         with(binding){
 
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        adapter.removeOnItemViewClickListener()
     }
 
 }
