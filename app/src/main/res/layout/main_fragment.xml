@@ -5,16 +5,65 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".ui.main.bottommenu.favorite.home.MainFragment">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/now_playing"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/now_playing"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycle_now_playing"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_now_playing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/up_coming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/now_playing" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/up_coming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@string/upcoming"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycle_upcoming"
+        app:layout_constraintTop_toBottomOf="@+id/recycle_now_playing" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_upcoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/up_coming" />
+
+    <FrameLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loadBackground"
+        android:visibility="gone"
+        tools:vibility="value">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

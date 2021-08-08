@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_imageR"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_titleR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_dataR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toBottomOf="@id/item_titleR"
+            android:layout_marginTop="6dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_retingR"
+            android:layout_width="236dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/item_imageR"
+            app:layout_constraintTop_toBottomOf="@id/item_dataR"
+            android:layout_marginTop="6dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_retingR" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

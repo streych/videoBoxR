@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favoritesFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.detailfragment.DetailFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_title"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="200dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_data"
+        app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_data"
+        android:layout_width="200dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@+id/item_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_retingR"
+        android:layout_width="200dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@+id/item_image"
+        app:layout_constraintTop_toBottomOf="@id/item_data" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_description"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="6dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

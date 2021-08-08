@@ -3,4 +3,13 @@
     <string name="home">Home</string>
     <string name="favorites">Favorite</string>
     <string name="retings">Reting</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="search">Search</string>
+    <string name="Cinema">MoviewBox</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="reting">Reting</string>
 </resources>
