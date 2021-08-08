@@ -10,6 +10,7 @@ import com.example.videoboxr.model.repository.RepositoryImpl
 class RetingViewModel(private val repository: Repository = RepositoryImpl()) :
     ViewModel() {
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
+    val THREAD_MILLIS = 1000
 
     fun getData(): LiveData<AppState> {
         getDataFromLocalSource()
@@ -17,19 +18,11 @@ class RetingViewModel(private val repository: Repository = RepositoryImpl()) :
     }
 
     private fun getDataFromLocalSource() {
-        val rand = (0..1).random()
         liveDataToObserve.value = AppState.Loading
         Thread {
-            Thread.sleep(1000)
-            /*if(rand == 0){
+            Thread.sleep(THREAD_MILLIS.toLong())
                 liveDataToObserve.postValue(
                     AppState.Success(repository.getMovieFromLocal()))
-            }
-            else{
-                liveDataToObserve.postValue(AppState.Error())
-            }*/
-            liveDataToObserve.postValue(
-                AppState.Success(repository.getMovieFromLocal()))
         }.start()
     }
 }

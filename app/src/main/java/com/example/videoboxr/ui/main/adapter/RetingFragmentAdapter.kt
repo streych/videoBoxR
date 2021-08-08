@@ -2,7 +2,6 @@ package com.example.videoboxr.ui.main.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -47,8 +46,7 @@ class RetingFragmentAdapter :
     inner class RetingViewModel (val binding: FragmentRetingRecyclerItemBinding):
     RecyclerView.ViewHolder(binding.root){
         fun bind(movie: Movie){
-            //binding.retingFragmentRecyclerItemView.text = movie.title
-            //binding.itemImageR.setImageIcon(R.drawable.ic_favorite)
+
             binding.itemImageR.setImageResource(R.drawable.image)
             binding.itemTitleR.text = movie.title
             binding.itemDataR.text = movie.dataCreate
@@ -56,7 +54,6 @@ class RetingFragmentAdapter :
             binding.root.setOnClickListener {
                 itemView.findViewById<TextView>(R.id.item_titleR).text = movie.title
                 onItemViewClickListener?.onItemViewClick(movie)
-                Snackbar.make(binding.root, "My Text", Snackbar.LENGTH_LONG).show()
             }
         }
     }

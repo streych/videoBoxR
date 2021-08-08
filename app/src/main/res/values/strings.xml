@@ -7,4 +7,9 @@
     <string name="about">About</string>
     <string name="search">Search</string>
     <string name="Cinema">MoviewBox</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="reting">Reting</string>
 </resources>

@@ -53,7 +53,6 @@ class RecyclerAdapterFavorite :
 
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
-                //Snackbar.make(itemView.context, "My Text", Snackbar.LENGTH_LONG).show()
             }
         }
 

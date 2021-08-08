@@ -1,19 +1,18 @@
 package com.example.videoboxr.ui.main.bottommenu.favorite.reting
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.videoboxr.R
 import com.example.videoboxr.databinding.RetingFragmentBinding
 import com.example.videoboxr.model.AppState
 import com.example.videoboxr.model.data.Movie
 import com.example.videoboxr.ui.main.adapter.RetingFragmentAdapter
 import com.example.videoboxr.ui.main.detailfragment.DetailFragment
-import com.example.videoboxr.ui.main.upmenu.settings.SettingsFragment
 import com.google.android.material.snackbar.Snackbar
 
 class RetingFragment : Fragment() {
@@ -42,12 +41,13 @@ class RetingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter.setOnItemViewClickListener(object : OnItemViewClickListener{
             override fun onItemViewClick(movie: Movie) {
-                val manager = activity?.supportFragmentManager
-                if (manager != null){
+                activity?.supportFragmentManager?.let { manager ->
                     val bundle = Bundle()
                     bundle.putParcelable(DetailFragment.BUNDLE_EXTRA, movie)
-                    manager.beginTransaction().replace(R.id.container,
-                        DetailFragment.newInstance(bundle))
+                    manager.beginTransaction().replace(
+                        R.id.container,
+                        DetailFragment.newInstance(bundle)
+                    )
                         .addToBackStack("")
                         .commitAllowingStateLoss()
                 }
