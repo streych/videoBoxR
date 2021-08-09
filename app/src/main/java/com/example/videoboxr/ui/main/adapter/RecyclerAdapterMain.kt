@@ -12,14 +12,11 @@ import com.example.videoboxr.ui.main.bottommenu.favorite.home.MainFragment
 class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewModel>() {
 
     private var movieData: List<Movie> = listOf()
-    private var onItemViewClickListener: MainFragment.OnItemViewClickListenerMain? = null
 
-    fun setOnItemViewClickListener(onItemViewClickListener: MainFragment.OnItemViewClickListenerMain) {
+    private var onItemViewClickListener: (Movie) -> Unit = {}
+
+    fun setOnItemViewClickListener(onItemViewClickListener: (Movie) -> Unit = {}) {
         this.onItemViewClickListener = onItemViewClickListener
-    }
-
-    fun removeOnItemViewClickListener() {
-        onItemViewClickListener = null
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -48,12 +45,16 @@ class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewMod
     inner class MainViewModel(val binding: FragmentNowPlaingItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
-            binding.imageNowPlaying.setImageResource(R.drawable.image)
-            binding.titleNowPlaying.text = movie.title
-            binding.dataNowPlaying.text = movie.dataCreate
-            binding.retingNowPlaying.text = movie.rating.toString()
-            binding.root.setOnClickListener {
-                onItemViewClickListener?.onItemViewClick(movie)
+            with(binding) {
+                with(movie) {
+                    imageNowPlaying.setImageResource(R.drawable.image)
+                    titleNowPlaying.text = title
+                    dataNowPlaying.text = dataCreate
+                    retingNowPlaying.text = rating.toString()
+                    root.setOnClickListener {
+                        onItemViewClickListener(this)
+                    }
+                }
             }
         }
 

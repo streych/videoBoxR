@@ -105,10 +105,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aboutDialog(){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("О программе")
-        builder.setMessage("Первая программа с применением MVVM и Kotlin")
-        builder.show()
+        AlertDialog.Builder(this)
+            .setTitle("О программе")
+            .setMessage("Первая программа с применением MVVM и Kotlin")
+            .show()
     }
 
 }

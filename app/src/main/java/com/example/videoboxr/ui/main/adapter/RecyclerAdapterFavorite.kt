@@ -30,9 +30,13 @@ class RecyclerAdapterFavorite :
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapterFavorite.ViewHolder, position: Int) {
-        holder.itemTitle.text = movieData.get(position).title
-        holder.itemData.text = movieData.get(position).dataCreate
-        holder.itemReting.text = movieData.get(position).rating.toString()
+        with(holder) {
+            with(movieData[position]) {
+                itemTitle.text = title
+                itemData.text = dataCreate
+                itemReting.text = rating.toString()
+            }
+        }
     }
 
     override fun getItemCount(): Int {
