@@ -4,7 +4,5 @@ import com.example.videoboxr.model.data.Movie
 import com.example.videoboxr.model.data.getMovies
 
 class RepositoryImpl: Repository {
-    override fun getMovieFromLocal(): List<Movie> {
-        return getMovies()
-    }
+    override fun getMovieFromLocal(): List<Movie> = getMovies()
 }

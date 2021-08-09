@@ -1,11 +1,11 @@
 package com.example.videoboxr.ui.main.detailfragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.videoboxr.R
 import com.example.videoboxr.databinding.DetailFragmentBinding
 import com.example.videoboxr.model.data.Movie
@@ -16,20 +16,23 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     companion object {
-        fun newInstance(bundle: Bundle) : DetailFragment{
+        fun newInstance(bundle: Bundle): DetailFragment {
             val fragment = DetailFragment()
             fragment.arguments = bundle
             return fragment
         }
+
         const val BUNDLE_EXTRA = "movie"
     }
 
-    private lateinit var viewModel: DetailViewModel
+    private val viewModel: DetailViewModel by lazy {
+        ViewModelProvider(this).get(DetailViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = DetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,19 +44,19 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        val movie = arguments?.getParcelable<Movie>(BUNDLE_EXTRA)
-        if (movie != null){
+        arguments?.getParcelable<Movie>(BUNDLE_EXTRA)?.let { movie ->
             populateData(movie)
         }
     }
 
     private fun populateData(movieData: Movie){
         with(binding){
-            itemTitle.text = movieData.title
-            itemData.text = movieData.dataCreate
-            itemDescription.text = movieData.description
-            itemRetingR.text = movieData.rating.toString()
+            with(movieData) {
+                itemTitle.text = title
+                itemData.text = dataCreate
+                itemDescription.text = description
+                itemRetingR.text = rating.toString()
+            }
             item_image.setImageResource(R.drawable.image)
         }
     }

@@ -2,45 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemContainerNowPlaying"
+    android:id="@+id/itemContainerUpComing"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_now_playing"
+        android:id="@+id/image_up_coming"
         android:layout_width="wrap_content"
         android:layout_height="130dp"
-        app:layout_constraintBottom_toTopOf="@+id/title_now_playing"
+        app:layout_constraintBottom_toTopOf="@+id/title_up_coming"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title_now_playing"
+        android:id="@+id/title_up_coming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        app:layout_constraintBottom_toTopOf="@+id/data_now_playing"
-        app:layout_constraintTop_toBottomOf="@id/image_now_playing"
+        app:layout_constraintBottom_toTopOf="@+id/data_up_coming"
+        app:layout_constraintTop_toBottomOf="@id/image_up_coming"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/data_now_playing"
+        android:id="@+id/data_up_coming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_now_playing" />
+        app:layout_constraintTop_toBottomOf="@id/title_up_coming" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/reting_now_playing"
+        android:id="@+id/reting_up_coming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reting"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/data_now_playing"
-        app:layout_constraintTop_toBottomOf="@id/title_now_playing" />
+        app:layout_constraintStart_toEndOf="@id/data_up_coming"
+        app:layout_constraintTop_toBottomOf="@id/title_up_coming" />
 
     <View
         android:layout_width="wrap_content"
@@ -49,6 +49,6 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reting_now_playing" />
+        app:layout_constraintTop_toBottomOf="@id/reting_up_coming" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
