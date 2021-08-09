@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.videoboxr.R
 import com.example.videoboxr.databinding.FragmentNowPlaingItemBinding
+import com.example.videoboxr.databinding.FragmentUpComingItemBinding
 import com.example.videoboxr.model.data.Movie
-import com.example.videoboxr.ui.main.bottommenu.favorite.home.MainFragment
 
-class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewModel>() {
+class RecyclerAdapterUpComing : RecyclerView.Adapter<RecyclerAdapterUpComing.UpComingViewHolder>() {
 
     private var movieData: List<Movie> = listOf()
 
@@ -28,13 +28,16 @@ class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewMod
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerAdapterMain.MainViewModel {
+    ): RecyclerAdapterUpComing.UpComingViewHolder {
         val binding =
-            FragmentNowPlaingItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MainViewModel(binding)
+            FragmentUpComingItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return UpComingViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapterMain.MainViewModel, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerAdapterUpComing.UpComingViewHolder,
+        position: Int
+    ) {
         holder.bind(movieData[position])
     }
 
@@ -42,15 +45,15 @@ class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewMod
         return movieData.size
     }
 
-    inner class MainViewModel(val binding: FragmentNowPlaingItemBinding) :
+    inner class UpComingViewHolder(val binding: FragmentUpComingItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
             with(binding) {
                 with(movie) {
-                    imageNowPlaying.setImageResource(R.drawable.image)
-                    titleNowPlaying.text = title
-                    dataNowPlaying.text = dataCreate
-                    retingNowPlaying.text = rating.toString()
+                    imageUpComing.setImageResource(R.drawable.image)
+                    titleUpComing.text = title
+                    dataUpComing.text = dataCreate
+                    retingUpComing.text = rating.toString()
                     root.setOnClickListener {
                         onItemViewClickListener(this)
                     }
@@ -59,5 +62,4 @@ class RecyclerAdapterMain : RecyclerView.Adapter<RecyclerAdapterMain.MainViewMod
         }
 
     }
-
 }

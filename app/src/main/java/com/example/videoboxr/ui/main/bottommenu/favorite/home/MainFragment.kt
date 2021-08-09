@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.videoboxr.R
 import com.example.videoboxr.databinding.MainFragmentBinding
 import com.example.videoboxr.model.AppState
-import com.example.videoboxr.model.data.Movie
-import com.example.videoboxr.ui.main.adapter.RecyclerAdapterMain
+import com.example.videoboxr.ui.main.adapter.RecyclerAdapterNowPlaying
+import com.example.videoboxr.ui.main.adapter.RecyclerAdapterUpComing
 import com.example.videoboxr.ui.main.detailfragment.DetailFragment
 import com.example.videoboxr.ui.main.hide
 import com.example.videoboxr.ui.main.show
@@ -22,7 +22,8 @@ class MainFragment : Fragment() {
     private var _binding: MainFragmentBinding? = null
     private val binding
         get() = _binding!!
-    private val adapter = RecyclerAdapterMain()
+    private val adapterNowPlaying = RecyclerAdapterNowPlaying()
+    private val adapterUpComing = RecyclerAdapterUpComing()
 
     companion object {
         fun newInstance() = MainFragment()
@@ -42,7 +43,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter.setOnItemViewClickListener { movie ->
+        adapterNowPlaying.setOnItemViewClickListener { movie ->
             activity?.supportFragmentManager?.apply {
                 beginTransaction().replace(
                     R.id.container,
@@ -54,8 +55,22 @@ class MainFragment : Fragment() {
                     .commitAllowingStateLoss()
             }
         }
+        binding.recycleNowPlaying.adapter = adapterNowPlaying
 
-        binding.recycleNowPlaying.adapter = adapter
+        adapterUpComing.setOnItemViewClickListener { movie ->
+            activity?.supportFragmentManager?.apply {
+                beginTransaction().replace(
+                    R.id.container,
+                    DetailFragment.newInstance(Bundle().apply {
+                        putParcelable(DetailFragment.BUNDLE_EXTRA, movie)
+                    })
+                )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
+        binding.recycleUpcoming.adapter = adapterUpComing
+
         viewModel.getData().observe(viewLifecycleOwner, Observer { a -> renderData(a) })
     }
 
@@ -64,7 +79,8 @@ class MainFragment : Fragment() {
             when (data) {
                 is AppState.Success -> {
                     hide()
-                    adapter.setMovie(data.movieData)
+                    adapterNowPlaying.setMovie(data.movieData)
+                    adapterUpComing.setMovie(data.movieData)
                 }
                 is AppState.Loading -> {
                     show()
