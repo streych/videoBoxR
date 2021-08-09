@@ -7,24 +7,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.videoboxr.R
 import com.example.videoboxr.databinding.FavoriteFragmentBinding
 import com.example.videoboxr.model.AppState
 import com.example.videoboxr.ui.main.adapter.RecyclerAdapterFavorite
+import com.example.videoboxr.ui.main.detailfragment.DetailFragment
 import com.example.videoboxr.ui.main.hide
 import com.example.videoboxr.ui.main.show
 import com.example.videoboxr.ui.main.showSnakeBar
 
 class FavoriteFragment : Fragment() {
 
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapterViewHolderFavorite: RecyclerView.Adapter<RecyclerAdapterFavorite.ViewHolder>? =
-        null
+    //private var layoutManager: RecyclerView.LayoutManager? = null
+    //private var adapterViewHolderFavorite: RecyclerView.Adapter<RecyclerAdapterFavorite.ViewHolder>? = null
+
     private var _binding: FavoriteFragmentBinding? = null
-    private val binding get() = _binding!!
-    private var recyclerAdapterFavorite = RecyclerAdapterFavorite()
+    private val binding
+    get() = _binding!!
+    private var favoriteFragmentAdapter = RecyclerAdapterFavorite()
 
     companion object {
         fun newInstance() = FavoriteFragment()
@@ -38,15 +38,25 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        layoutManager = LinearLayoutManager(context)
-        adapterViewHolderFavorite = RecyclerAdapterFavorite()
-
         _binding = FavoriteFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        favoriteFragmentAdapter.setOnItemViewClickListener{movie ->
+            activity?.supportFragmentManager?.apply {
+                beginTransaction().replace(
+                    R.id.container,
+                    DetailFragment.newInstance(Bundle().apply {
+                        putParcelable(DetailFragment.BUNDLE_EXTRA, movie)
+                    })
+                )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
+        binding.favoritesFragmentRecycleView.adapter = favoriteFragmentAdapter
         favoriteViewModel.getData().observe(viewLifecycleOwner, Observer { a -> renderData(a) })
     }
 
@@ -55,7 +65,7 @@ class FavoriteFragment : Fragment() {
             when (data) {
                 is AppState.Success -> {
                     hide()
-                    recyclerAdapterFavorite.setMovie(data.movieData)
+                    favoriteFragmentAdapter.setMovie(data.movieData)
                 }
                 is AppState.Loading -> {
                     show()

@@ -7,7 +7,8 @@ import com.example.videoboxr.model.AppState
 import com.example.videoboxr.model.repository.Repository
 import com.example.videoboxr.model.repository.RepositoryImpl
 
-class FavoriteViewModel(private val repository: Repository = RepositoryImpl()) : ViewModel() {
+class FavoriteViewModel(private val repository: Repository = RepositoryImpl()) :
+    ViewModel() {
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
     var THREAD_MILLIS = 1000
 

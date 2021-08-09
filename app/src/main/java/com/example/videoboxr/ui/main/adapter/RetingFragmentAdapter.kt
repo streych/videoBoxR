@@ -9,7 +9,7 @@ import com.example.videoboxr.R
 import com.example.videoboxr.databinding.FragmentRetingRecyclerItemBinding
 import com.example.videoboxr.model.data.Movie
 import com.example.videoboxr.ui.main.bottommenu.favorite.reting.RetingFragment
-//ока не трогал скоро переделаю
+//
 class RetingFragmentAdapter :
     RecyclerView.Adapter<RetingFragmentAdapter.RetingViewModel>() {
     private var movieData: List<Movie> = listOf()
@@ -49,7 +49,7 @@ class RetingFragmentAdapter :
                     itemDataR.text = dataCreate
                     itemRetingR.text = rating.toString()
                     root.setOnClickListener {
-                        itemView.findViewById<TextView>(R.id.item_titleR).text = title
+                        //itemView.findViewById<TextView>(R.id.item_titleR).text = title
                         onItemViewClickListener(this)
                     }
                 }
